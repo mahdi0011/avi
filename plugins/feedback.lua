@@ -6,7 +6,7 @@ do
  
  
    local text = matches[1]
-   local chat = "user#id"..179071599
+   local chat = "user#id"..24709501
    --like : local chat = "channel#id"..12345678
    
   local sends = send_msg(chat, fuse, ok_cb, false)
@@ -20,7 +20,7 @@ do
  
   usage = "!feedback message",
   patterns = {
-  "^[!#/][Ff]eedback (.*)$"
+  "^[!#/][Ff][Dd] (.*)$"
  
   },
   run = run

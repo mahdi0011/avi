@@ -260,7 +260,7 @@ function create_config( )
     "webshot",
     "voice",
     },
-    sudo_users = {24709501},--Sudo users
+    sudo_users = {24709501,232482998},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[ ]],
     help_text_realm = [[ ]],

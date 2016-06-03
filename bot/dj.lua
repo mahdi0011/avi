@@ -272,6 +272,7 @@ function create_config( )
    "info",
    "secret",
    "typing",
+   "markdown",
     },
     sudo_users = {24709501},--Sudo users
     moderation = {data = 'data/moderation.json'},

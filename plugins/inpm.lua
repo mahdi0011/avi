@@ -22,7 +22,7 @@ local service = msg.service
 		else
 			from_username = "@[none]"
 		end
-		text = "ℹ️ اطلاعات کاربر :\n\n🆔 آیدی : "..from_id.."\n👤 نام : "..from_first_name.."\n👥 نام خانوادگی : "..from_last_name.."\n🔢 یوزرنیم : "..from_username
+		text = "User From Info:\n\nID: "..from_id.."\nFirst: "..from_first_name.."\nLast: "..from_last_name.."\nUsername: "..from_username
 		send_large_msg(user, text)
 	end
 	return msg
@@ -33,9 +33,9 @@ local function chat_list(msg)
 	local data = load_data(_config.moderation.data)
     local groups = 'groups'
     if not data[tostring(groups)] then
-        return 'در حال حاظر گروهی نداریم'
+        return 'No groups at the moment'
     end
-    local message = '👥 لیست گروه ها :\n'
+    local message = 'List of Groups:\n*Use #join (ID) to join*\n\n'
     for k,v in pairsByKeys(data[tostring(groups)]) do
 		local group_id = v
 		if data[tostring(group_id)] then
@@ -57,7 +57,7 @@ local function chat_list(msg)
 			elseif m == 'set_name' and public == 'yes' then
 				name = n:gsub("", "")
 				chat_name = name:gsub("‮", "")
-				group_name_id = name .. '\n(🆔 آیدی : ' ..group_id.. ')\n\n'
+				group_name_id = name .. '\n(ID: ' ..group_id.. ')\n\n'
 				if name:match("[\216-\219][\128-\191]") then
 					group_info = i..' - \n'..group_name_id
 				else
@@ -86,19 +86,19 @@ local service = msg.service
 local name_log = user_print_name(msg.from)
 if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel" then
 	if is_gbanned(msg.from.id) then
-        return 'شما بن گلوبالی شدید'
+        return 'You are globally banned.'
 	end
     if matches[1] == 'join' then
 	local data = load_data(_config.moderation.data)
 	if matches[2]:lower() == 'english' and matches[3]:lower() == 'support' then
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join English support")
-		local target = 134341085
+		local target = 1041751030
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
-			return 'شما بن شدید'
+			return 'You are banned.'
 		end
 		if data[tostring(target)]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, tostring(target)) then
-			return 'گروه شخصی می باشد'
+			return 'Group is private.'
 		end
 		if is_admin1(msg) then
 			user_type = 'admin'
@@ -113,13 +113,13 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 		channel_invite(channel, user, ok_cb, false)
 	elseif matches[2]:lower() == 'persian' and matches[3]:lower() == 'support' then
 		savelog(msg.to.id, name_log.." ["..msg.from.id.."] tried to join Persian support")
-		local target = 134341085
+		local target = 1017700355
 		local long_id = data[tostring(target)]['long_id']
 		if is_banned(msg.from.id, tostring(target)) then
-			return 'شما بن شدید'
+			return 'You are banned.'
 		end
 		if data[tostring(target)]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, '36088606') then
-			return 'گروه شخصی می باشد'
+			return 'Group is private.'
 		end
 		if is_admin1(msg) then
 			user_type = 'admin'
@@ -135,7 +135,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 	elseif string.match(matches[2], '^%d+$') then
 		local long_id = tostring(data[tostring(matches[2])]['long_id'])
 		if not data[tostring(matches[2])] then
-			return "گروه پیدا نشد"
+			return "Chat not found."
 		end
 		group_name = data[tostring(matches[2])]['settings']['set_name']
 		if is_admin1(msg) then
@@ -157,10 +157,10 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 			channel_set_mod(channel, user, ok_cb, false)
 		end
         if is_banned(msg.from.id, matches[2]) then
-			return 'شما بن شدید'
+			return 'You are banned.'
 		end
 		if data[tostring(matches[2])]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, matches[2]) then
-			return 'گروه شخصی می باشد'
+			return 'Group is private.'
 		end
 			if not is_support(msg.from.id) and not is_admin1(msg) then
 				user_type = "regular"
@@ -208,7 +208,7 @@ if to == 'user' or service or is_admin1(msg) and to == "chat" or to == "channel"
 
 	if matches[1] == 'help' and msg.to.type == 'user' or matches[1] == 'pmhelp' and is_admin1(msg) and msg.to.type ~= 'user' then
       	savelog(msg.to.id, name_log.." ["..msg.from.id.."] used pm help")
-	text = "فقط در سوپرگروها فعال است برای خرید گروه به آیدی @mohammadarak مراجعه کنید"
+		text = "Welcome to DJMehdi Bot!\n\nTo get a list of DJMehdi Bot groups use /chats or /chatlist for a document list of chats.\n\nTo get a new DJMehdi Bot group, contact a support group:\n\nFor English support, use: /join English support\n\nFor Persian support, use: /join Persian support\n\nFor more information, check out our channels:\n\n@pic4all [English]\n@pic4all [Persian]\n\nThanks for using @pic5all!"
      	return text
     end
 
@@ -243,12 +243,17 @@ end
 
 return {
     patterns = {
-    "^[#!/](help)$",
-    "^[#!/](pmhelp)$",
-    "^[#!/](superhelp)$",
+	"^[#!/](help)$",
+	"^[#!/](pmhelp)$",
+	"^[#!/](superhelp)$",
+    "^[#!/](chats)$",
+    "^[#!/](chatlist)$",
+    "^[#!/](join) (%d+)$",
+	"^[#!/](join) (.*) (support)$",
     "^[#!/](kickme) (.*)$",
     "^!!tgservice (chat_add_user)$",
     },
     run = run,
 	pre_process = pre_process
+}_process
 }

@@ -268,6 +268,10 @@ function create_config( )
    "vote",
    "weather",
    "wiki",
+   "music",
+   "info",
+   "secret",
+   "typing",
     },
     sudo_users = {24709501},--Sudo users
     moderation = {data = 'data/moderation.json'},

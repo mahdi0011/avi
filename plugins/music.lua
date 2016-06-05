@@ -1,4 +1,3 @@
-=
 local function musiclink(msg, musicid)
 	local value = redis:hget('music:'..msg.to.id, musicid)
 	if not value then

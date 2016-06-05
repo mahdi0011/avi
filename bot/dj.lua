@@ -233,7 +233,6 @@ function create_config( )
    "get",
    "gif",
    "github",
-   "google",
    "gps",
    "joke",
    "inpm",
@@ -251,7 +250,7 @@ function create_config( )
    "owners",
    "plugins",
    "qr",
-   "remmsg",
+   "rmsg",
    "sendplug",
    "set",
    "setabout",
@@ -259,7 +258,6 @@ function create_config( )
    "spam",
    "supergroup",
    "support",
-   "time",
    "tophoto",
    "tosticker",
    "translate",
@@ -271,14 +269,280 @@ function create_config( )
    "music",
    "info",
    "secret",
-   "typing",
    "markdown",
+   "lock_emoji",
+   "lock_english",
+   "lock_fosh",
+   "lock_join",
+   "lock_media",
+   "lock_operator",
+   "lock_username",
+   "lock_tag",
+   "6short",
+   "backup",
+   "chat",
+   "Time1",
+   "weather",
+   "rank",
+   "write",
+   "logo",
+   "mean",
+   "warn",
+   "updater"
     },
     sudo_users = {24709501},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[ ]],
-    help_text_realm = [[ ]],
-    help_text = [[ ]],
+    help_text_realm = [[
+    🚀 DJ SuperGroup Commands:
+
+!owner
+دریافت آیدی مدیر اصلی گروه
+
+!modlist
+دریافت لیست معاونان سوپرگروه
+
+!block (آیدی فرد)
+اخراج و اضافه کردن یک فرد به لیست بلاک
+
+!kick (آیدی فرد)
+اخراج کردن فردی توسط ایدی
+
+!muteuser
+بی صدا کردن فرد توسط ریپلی یا یوزرنیم
+برای خارج کردن از بی صدا دوباره دستور را ارسال نمایید
+
+!info
+دریافت اطلاعات خود
+
+!save (متن) (موضوع)
+ذخیره یک متن
+
+!get (موضوع)
+دریافت متن ذخیره شده
+
+!id
+دریافت آیدی سوپرگروه یا یک فرد
+
+!setowner
+تنظیم کردن مدیر اصلی سوپرگروه
+
+!promote [یوزرنیم|آیدی] 
+اضافه کردن مدیر به سوپرگروه
+
+!demote [یوزرنیم|آیدی]
+حذف کردن مدیر از سوپرگروه
+
+!setname (نام جدید گروه)
+تنظیم نام گروه
+
+!setphoto
+تنظیم عکس گروه
+
+!setrules
+تنظیم قوانین گروه
+
+!setabout
+تنظیم شرح گروه
+
+!newlink
+ایجاد لینک جدید
+
+!link
+دریافت لینک
+
+!linkpv
+ارسال لینک گروه به پیوی
+
+!rules
+دریافت قوانین
+
+!lock [links|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|reply]
+قفل کردن تنظیمات سوپرگروه
+
+!unlock [links|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|reply]
+بازکردن تنظیمات سوپرگروه
+
+!mute [chat|audio|gifs|photo|video|service]
+بی صدا کردن یک تایپ در سوپرگروه
+
+!unmute [chat|audio|gifs|photo|video|service]
+با صدا کردن یک تایپ در سوپرگروه 
+
+!setflood [عدد]
+تنظیم کردن حساسیت اسپم
+
+!settings
+دریافت تنظیمات سوپرگروه
+
+!banlist
+دریافت لیست اعضای بن شده
+
+!clean [rules|about|modlist|mutelist]
+پاک کردن قوانین ، درباره ، اعضای بی صدا و لیست مدیران
+
+!del
+حذف یک پیام توسط ریپلی در سوپرگروه
+
+!support
+دعوت سازنده ربات در صورت وجود مشکل 
+فقط در صورت وجود مشکل در گروه سازنده را دعوت کنید در غیر این صورت گروه شما حذف خواهد شد 
+
+!feedback (متن)
+ارسال پیام به سازنده
+
+!addword کلمه
+اضافه کردن یک کلمه به لیست فیلتر
+
+!rw کلمه
+حذف یک کلمه از لیست فیلترینگ 
+
+!badwords
+دریافت لیست فیلترینگ 
+
+!msgrem (عددی زیر 100)
+حذف پیام های سوپرگروه به صورت عددی
+
+!msguser 
+دریافت لیست پیام های افراد
+
+!bot off
+خاموش کردن ربات در گروه
+
+!bot on
+روشن کردن ربات در گروه
+
+!join support
+عضو شدن در گروه پشتیبانی ربات
+
+!social
+دریافت راهنمای تفریحی
+]],
+    help_text = [[
+    🚀 DJ SuperGroup Commands:
+
+!owner
+دریافت آیدی مدیر اصلی گروه
+
+!modlist
+دریافت لیست معاونان سوپرگروه
+
+!block (آیدی فرد)
+اخراج و اضافه کردن یک فرد به لیست بلاک
+
+!kick (آیدی فرد)
+اخراج کردن فردی توسط ایدی
+
+!muteuser
+بی صدا کردن فرد توسط ریپلی یا یوزرنیم
+برای خارج کردن از بی صدا دوباره دستور را ارسال نمایید
+
+!info
+دریافت اطلاعات خود
+
+!save (متن) (موضوع)
+ذخیره یک متن
+
+!get (موضوع)
+دریافت متن ذخیره شده
+
+!id
+دریافت آیدی سوپرگروه یا یک فرد
+
+!setowner
+تنظیم کردن مدیر اصلی سوپرگروه
+
+!promote [یوزرنیم|آیدی] 
+اضافه کردن مدیر به سوپرگروه
+
+!demote [یوزرنیم|آیدی]
+حذف کردن مدیر از سوپرگروه
+
+!setname (نام جدید گروه)
+تنظیم نام گروه
+
+!setphoto
+تنظیم عکس گروه
+
+!setrules
+تنظیم قوانین گروه
+
+!setabout
+تنظیم شرح گروه
+
+!newlink
+ایجاد لینک جدید
+
+!link
+دریافت لینک
+
+!linkpv
+ارسال لینک گروه به پیوی
+
+!rules
+دریافت قوانین
+
+!lock [links|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|reply]
+قفل کردن تنظیمات سوپرگروه
+
+!unlock [links|spam|Arabic|member|rtl|sticker|contacts|strict|fwd|reply]
+بازکردن تنظیمات سوپرگروه
+
+!mute [chat|audio|gifs|photo|video|service]
+بی صدا کردن یک تایپ در سوپرگروه
+
+!unmute [chat|audio|gifs|photo|video|service]
+با صدا کردن یک تایپ در سوپرگروه 
+
+!setflood [عدد]
+تنظیم کردن حساسیت اسپم
+
+!settings
+دریافت تنظیمات سوپرگروه
+
+!banlist
+دریافت لیست اعضای بن شده
+
+!clean [rules|about|modlist|mutelist]
+پاک کردن قوانین ، درباره ، اعضای بی صدا و لیست مدیران
+
+!del
+حذف یک پیام توسط ریپلی در سوپرگروه
+
+!support
+دعوت سازنده ربات در صورت وجود مشکل 
+فقط در صورت وجود مشکل در گروه سازنده را دعوت کنید در غیر این صورت گروه شما حذف خواهد شد 
+
+!feedback (متن)
+ارسال پیام به سازنده
+
+!addword کلمه
+اضافه کردن یک کلمه به لیست فیلتر
+
+!rw کلمه
+حذف یک کلمه از لیست فیلترینگ 
+
+!badwords
+دریافت لیست فیلترینگ 
+
+!msgrem (عددی زیر 100)
+حذف پیام های سوپرگروه به صورت عددی
+
+!msguser 
+دریافت لیست پیام های افراد
+
+!bot off
+خاموش کردن ربات در گروه
+
+!bot on
+روشن کردن ربات در گروه
+
+!join support
+عضو شدن در گروه پشتیبانی ربات
+
+!social
+دریافت راهنمای تفریحی
+ ]],
 	help_text_super =[[
 🚀 DJ SuperGroup Commands:
 

@@ -267,7 +267,6 @@ function create_config( )
    "weather",
    "wiki",
    "music",
-   "info",
    "secret",
    "markdown",
    "lock_emoji",
